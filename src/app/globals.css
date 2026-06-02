@@ -1,0 +1,55 @@
+:root {
+  --bg: #06060c;
+  --ink: #e8e0ff;
+  --ink-d: #7a6b8f;
+  --violet: #7a4dff;
+  --magenta: #ff4dc8;
+  --cyan: #4dffe8;
+  --gold: #e8c4a0;
+  --border: rgba(122, 77, 255, 0.18);
+  --border-hi: rgba(122, 77, 255, 0.45);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: var(--bg); color: var(--ink);
+  font-family: ui-monospace, "SF Mono", "Menlo", monospace;
+  -webkit-font-smoothing: antialiased;
+  height: 100%; overflow: hidden;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  background: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+button, .btn {
+  background: transparent; color: var(--violet);
+  border: 1px solid var(--border); padding: 0.5rem 1rem;
+  font-family: inherit; font-size: inherit; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+  border-radius: 2px;
+}
+button:hover, .btn:hover {
+  border-color: var(--violet);
+  background: rgba(122, 77, 255, 0.08);
+  box-shadow: 0 0 16px rgba(122, 77, 255, 0.2);
+}
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+h1, h2, h3 { font-weight: 400; letter-spacing: 0.05em; }
+h1 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--violet);
+  text-transform: uppercase; letter-spacing: 0.25em;
+}
+h2 {
+  font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.25em; color: var(--ink-d);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem; margin-bottom: 0.75rem;
+}
+.tag {
+  display: inline-block; font-size: 0.65rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-d);
+  border: 1px solid var(--border); padding: 0.1rem 0.45rem;
+  border-radius: 999px; margin-right: 0.3rem;
+}
+.tag.live { color: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 6px rgba(77,255,232,0.4); }
+.mono { font-family: ui-monospace, monospace; }
+::selection { background: var(--violet); color: var(--bg); }
